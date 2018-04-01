@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+  - shell: 'echo $RANDOM'
+    register: random
+  - debug:
+      msg: "got my random value: {{ random.stdout }}"
+  - set_stats:
+      random_val: "{{ random.stdout }}"
