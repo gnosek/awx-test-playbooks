@@ -5,4 +5,5 @@
   - debug:
       msg: "got my random value: {{ random.stdout }}"
   - set_stats:
-      random_val: "{{ random.stdout }}"
+      data:
+        random_val: "{{ random.stdout }}"
