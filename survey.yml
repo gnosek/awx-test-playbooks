@@ -2,5 +2,9 @@
   tasks:
   - debug:
       msg: "Your favorite color: {{ fav_color }}"
+    tags:
+    - color
   - debug:
       msg: "Speed of an unladen {{ swallow_species }} swallow is {{ swallow_speed }}"
+    tags:
+    - swallow
