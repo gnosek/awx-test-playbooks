@@ -1,3 +1,5 @@
 - hosts: all
+  gather_facts: true
   tasks:
   - setup:
+    when: refresh_facts
