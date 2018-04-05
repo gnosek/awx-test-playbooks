@@ -6,7 +6,3 @@
       description: "Just a demo of the tower_host module"
       variables:
         ansible_host: 127.0.1.1
-      tower_host: "{{ lookup('env', 'TOWER_HOST') }}"
-      tower_username: "{{ lookup('env', 'TOWER_USERNAME') }}"
-      tower_password: "{{ lookup('env', 'TOWER_PASSWORD') }}"
-      tower_verify_ssl: "{{ lookup('env', 'TOWER_VERIFY_SSL') }}"
