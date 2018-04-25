@@ -1,0 +1,33 @@
+- hosts: tower
+  user: root
+  tasks:
+  - apt:
+      name:
+      - curl
+      - apt-transport-https
+      - git
+  - shell: 'curl -sSL https://get.docker.com | bash'
+    args:
+      creates: /usr/bin/docker
+  - get_url: https://github.com/docker/compose/releases/download/1.21.0/docker-compose-Linux-x86_64
+      dest: /usr/local/bin/docker-compose
+      mode: 0755
+
+  - git:
+      repo: https://github.com/gnosek/awx-docker-compose
+      dest: /var/lib/awx
+
+  - shell: './make-sample-env > .env'
+    args:
+      chdir: /var/lib/awx
+      creates: /var/lib/awx/.env
+
+  - command: docker-compose pull
+    args:
+      chdir: /var/lib/awx
+    tags: pull
+
+  - command: docker-compose up -d
+    args:
+      chdir: /var/lib/awx
+    tags: up
