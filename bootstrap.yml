@@ -1,4 +1,5 @@
 - hosts: tower
+  gather_facts: false
   user: root
   tasks:
   - raw: '[ ! -e /usr/bin/python ] || apt-get update && apt-get -y install python2.7 python'
