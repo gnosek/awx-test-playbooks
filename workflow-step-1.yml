@@ -9,3 +9,4 @@
   - set_stats:
       data:
         random_val: "{{ random.stdout }}"
+      per_host: yes
