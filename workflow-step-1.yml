@@ -7,6 +7,6 @@
   - debug:
       msg: "got my random value: {{ random.stdout }}"
   - set_stats:
-      data: "{{ stats }}"
+      data:
         random_val: "{{ random.stdout }}"
     run_once: true
