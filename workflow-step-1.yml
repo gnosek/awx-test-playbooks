@@ -7,6 +7,8 @@
   - debug:
       msg: "got my random value: {{ random.stdout }}"
   - set_stats:
-      data:
-        random_val: "{{ random.stdout }}"
-      per_host: yes
+      data: {
+        "random_val": {
+          "{{ inventory_hostname }}": "{{ random.stdout }}"
+        }
+      }
