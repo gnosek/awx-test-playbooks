@@ -8,7 +8,7 @@
       msg: "got my random value: {{ random.stdout }}"
   - set_stats:
       data: {
-        "random_val": {
-          "{{ inventory_hostname }}": "{{ random.stdout }}"
-        }
+        "random_val": '{{
+          { "{{ inventory_hostname }}": "{{ random.stdout }}" }
+        }}'
       }
