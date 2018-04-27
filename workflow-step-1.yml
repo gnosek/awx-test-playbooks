@@ -6,8 +6,7 @@
     register: random
   - debug:
       msg: "got my random value: {{ random.stdout }}"
-  - set_fact:
-      stats:
-        random_val: { "{{ inventory_hostname }}": "{{ random.stdout }}" }
   - set_stats:
       data: "{{ stats }}"
+        random_val: "{{ random.stdout }}"
+    run_once: true
